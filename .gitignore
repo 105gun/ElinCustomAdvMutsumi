@@ -1,0 +1,8 @@
+bin/
+obj/
+package/Sound/Instrument/HouraiDensetsu.wav
+
+.DS_Store
+Thumbs.db
+
+Directory.Build.props
