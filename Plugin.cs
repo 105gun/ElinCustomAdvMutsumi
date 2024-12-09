@@ -25,7 +25,7 @@ public class Plugin : BaseUnityPlugin
     public const string MOD_NAME = "CustomAdvMutsumi";
     public const string MOD_NAME_LOWER = "customadvmutsumi";
     public const string MOD_VERSION = "1.0.0.0";
-    static PrivateLogLevel pluginLogLevel = PrivateLogLevel.Debug;
+    static PrivateLogLevel pluginLogLevel = PrivateLogLevel.Info;
 
     private void Start()
     {

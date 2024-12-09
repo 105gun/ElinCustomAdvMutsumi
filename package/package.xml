@@ -1,9 +1,15 @@
 <Meta>
-	<title>Custom Adventurer Mutsumi</title>
+	<title>[Adventurer]若葉睦</title>
 	<id>custom_adv_mutsumi</id>
 	<author>105gun</author>
 	<loadPriority>100</loadPriority>
-    <description></description>
+    <description>[img]https://s2.loli.net/2024/12/08/zuDs6Nd8iHhVcX9.png[/img]
+
+This mod adds a separate adventurer, 若葉睦 Wakaba Mutsumi (From TV Anime 『BanG Dream!』Series), who specializes in the use of guitars and throwing objects.
+You can find her on the adventurer rank list, no matter new savefile or not.
+(No custom dialogs have been added yet, with future plans)
+
+Note: This mod isn't finished yet, I need to at least finish her portrait...</description>
 	<version>0.23.32</version>
 	<tags>NPC</tags>
 </Meta>

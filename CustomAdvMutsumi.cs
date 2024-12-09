@@ -18,17 +18,17 @@ class AddCustomAdv
         {
             if (item.id == "adv_mutsumi")
             {
-                Plugin.ModLog("CustomAdv is loaded", PrivateLogLevel.Debug);
+                Plugin.ModLog("CustomAdv is loaded", PrivateLogLevel.Info);
                 return true;
             }
         }
-        Plugin.ModLog("CustomAdv is not loaded", PrivateLogLevel.Debug);
+        Plugin.ModLog("CustomAdv is not loaded", PrivateLogLevel.Info);
         return false;
     }
 
     public static void AddCustomAdventurer()
     {
-        Plugin.ModLog("Adding CustomAdv", PrivateLogLevel.Debug);
+        Plugin.ModLog("Adding CustomAdv", PrivateLogLevel.Info);
         Chara chara = CharaGen.Create("adv_mutsumi", -1);
         List<Zone> list = EClass.game.world.region.ListTowns();
         Zone homeZone = list.RandomItem<Zone>();
@@ -74,7 +74,6 @@ class CharaRestockEquipPatch
 {
     static void Prefix(Chara __instance, bool onCreate)
     {
-        Plugin.ModLog("Chara.RestockEquip", PrivateLogLevel.Debug);
         if (__instance.id == "adv_mutsumi")
         {
             if (onCreate)
