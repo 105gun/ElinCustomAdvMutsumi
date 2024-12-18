@@ -24,7 +24,7 @@ public class Plugin : BaseUnityPlugin
     public const string MOD_AUTHOR = "105gun";
     public const string MOD_NAME = "CustomAdvMutsumi";
     public const string MOD_NAME_LOWER = "customadvmutsumi";
-    public const string MOD_VERSION = "1.0.0.0";
+    public const string MOD_VERSION = "1.2.0.0";
     static PrivateLogLevel pluginLogLevel = PrivateLogLevel.Info;
 
     private void Start()
@@ -32,19 +32,9 @@ public class Plugin : BaseUnityPlugin
         ModLog("Initializing");
         var harmony = new Harmony($"{MOD_AUTHOR}.{MOD_NAME_LOWER}.mod");
         harmony.PatchAll();
-        // LoadData(Info);
         ModLog("Initialization completed");
     }
 
-    public static void LoadData(PluginInfo Info)
-    {
-		var dir = Path.GetDirectoryName(Info.Location);
-		var excel = dir + "/Data/SourceCard.xlsx";
-		var sources = Core.Instance.sources;
-		ModUtil.ImportExcel(excel, "Thing", sources.things);
-		ModUtil.ImportExcel(excel, "Chara", sources.charas);
-		ModUtil.ImportExcel(excel, "CharaText", sources.charaText);
-    }
     public static void ModLog(string message, PrivateLogLevel logLevel = PrivateLogLevel.Info)
     {
         if (logLevel > pluginLogLevel)

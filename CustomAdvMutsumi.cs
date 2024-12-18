@@ -9,7 +9,6 @@ using UnityEngine.Assertions;
 
 namespace CustomAdv;
 
-
 class AddCustomAdv
 {
     public static bool isCustomAdvLoaded()
@@ -58,11 +57,6 @@ class SceneInitPatch
         Plugin.ModLog("Scene.Init", PrivateLogLevel.Debug);
         if (newMode == Scene.Mode.StartGame && EClass.core != null && EClass.core.game != null && EClass.player != null && !AddCustomAdv.isCustomAdvLoaded())
         {
-            //DEBUG
-            //Thing test = ThingGen.Create("mutsumi_book");
-            //Plugin.ModLog($"ThingGen.Create {test.id}", PrivateLogLevel.Debug);
-            //EClass.pc.things.Add(test);
-            // EClass.player.chara.EQ_ID("mutsumi_book", -1, Rarity.Artifact);
             AddCustomAdv.AddCustomAdventurer();
         }
     }
@@ -82,5 +76,21 @@ class CharaRestockEquipPatch
                 __instance.EQ_ID("mutsumi_guitar", -1, Rarity.Artifact);
             }
         }
+    }
+}
+
+// Chara.ShowDialog
+[HarmonyPatch(typeof(Chara), nameof(Chara.ShowDialog), new Type [] {})]
+class CharaShowDialogPatch
+{
+    static bool Prefix(Chara __instance)
+    {
+        if (__instance.id == "adv_mutsumi")
+        {
+            DramaOutcomeRoutingPatch.SyncParameter(__instance);
+            __instance.ShowDialog("adv_mutsumi", "main", "");
+            return false;
+        }
+        return true;
     }
 }
